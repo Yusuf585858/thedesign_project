@@ -9,9 +9,14 @@
     src: url("../fonts/Roboto-Medium.ttf");
 }
 
+body {}
+
 html {
     font-size: 10px;
+    /* overflow-x: hidden; */
 }
+
+
 
 
 /* ====  #0b0c17 / #ff3571 / #dddddd / #3C30FF / #FFF / #000 =========*/
@@ -25,7 +30,7 @@ html {
     animation: linear 15s ease infinite;
 } */
 
-header {
+/* header {
     background-size: 200% 200%;
     background-image: linear-gradient(-45deg,
             rgba(59, 173, 227, 1) 0%,
@@ -47,14 +52,26 @@ header {
     100% {
         background-position: 0% 50%
     }
+} */
+
+header {
+    background-image: url("../img/ilustracion1.png");
+    background-position: top right;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
+
+#flying {
+    display: none;
+}
+
 
 
 header figure {
     display: flex;
-    justify-content: center;
+    justify-content: left;
     /*   padding-left: 4rem;  */
-    padding-top: 4rem;
+    padding-top: 1rem;
 }
 
 header figure figcaption {
@@ -112,7 +129,7 @@ header div p {
     font-size: 1.8rem;
 }
 
-.colage img {
+#colage {
     width: 100%;
     height: auto;
 }
@@ -448,6 +465,9 @@ footer article form input[type="submit"] {
 /* ================ ab 601px ================= */
 
 @media only screen and (min-width:601px) {
+    * {
+        font-size: 15px;
+    }
 
 
 
@@ -456,29 +476,57 @@ footer article form input[type="submit"] {
 
     }
 
-    header {
-        background: url("../img/ilustracion1.png");
-        background-image: url("../img/ilustracion_people.png");
-        background-position: top right;
-        background-repeat: no-repeat;
-        background-size: contain;
-        animation: AnimateHEADER 5s ease infinite;
 
+    #flying {
+        z-index: 0;
+        display: unset;
+        position: absolute;
+        top: -15rem;
+        right: 10rem;
+        width: 45rem;
+        height: auto;
+        animation-name: flying;
+        animation-duration: 4s;
+        animation-iteration-count: infinite;
+        aspect-ratio: 1/1;
+        animation: 4s linear 0s infinite alternate flying;
+        /* animation: AnimateFLYING 5s ease infinite; */
     }
 
-    @keyframes AnimateHEADER {
-        0% {
-            background-position: 0% 50%
+
+    @keyframes flying {
+        /*    0% {
+            right: 0%;
+            top: 50%;
         }
+
 
         50% {
-            background-position: 100% 50%
+
+            right: 100%;
+            top: 50%;
         }
 
+
         100% {
-            background-position: 0% 50%
+
+            right: 0%;
+            top: 50%;
+        } */
+
+        from {
+
+            transform: translateY(50%);
+        }
+
+        to {
+
+            transform: translateY(0);
         }
     }
+
+
+
 
     header figure {
         display: inline-flex;
